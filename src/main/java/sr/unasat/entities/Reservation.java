@@ -1,15 +1,23 @@
 package sr.unasat.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
-
+import java.time.LocalDate;
+import java.time.LocalTime;
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Reservation {
     private int reservationId;
-    private Date reservationDate;
-    private Time beginTijd;
-    private Time eindTijd;
+    private LocalDate reservationDate;
+    private LocalTime beginTijd;
+    private LocalTime eindTijd;
     private Klanten klantenByKlantId;
     private Location locationByLocationId;
 
@@ -25,31 +33,31 @@ public class Reservation {
 
     @Basic
     @Column(name = "reservation_date")
-    public Date getReservationDate() {
+    public LocalDate getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(Date reservationDate) {
+    public void setReservationDate(LocalDate reservationDate) {
         this.reservationDate = reservationDate;
     }
 
     @Basic
     @Column(name = "begin_tijd")
-    public Time getBeginTijd() {
+    public LocalTime getBeginTijd() {
         return beginTijd;
     }
 
-    public void setBeginTijd(Time beginTijd) {
+    public void setBeginTijd(LocalTime beginTijd) {
         this.beginTijd = beginTijd;
     }
 
     @Basic
     @Column(name = "eind_tijd")
-    public Time getEindTijd() {
+    public LocalTime getEindTijd() {
         return eindTijd;
     }
 
-    public void setEindTijd(Time eindTijd) {
+    public void setEindTijd(LocalTime eindTijd) {
         this.eindTijd = eindTijd;
     }
 
@@ -79,7 +87,7 @@ public class Reservation {
     }
 
     @ManyToOne
-    @JoinColumn(name = "klant_id", referencedColumnName = "klant_id")
+    @JoinColumn(name = "klant_id", referencedColumnName = "Klant_id")
     public Klanten getKlantenByKlantId() {
         return klantenByKlantId;
     }

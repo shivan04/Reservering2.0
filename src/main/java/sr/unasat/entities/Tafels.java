@@ -6,20 +6,22 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Builder
+
 @Entity
-@NoArgsConstructor
-@AllArgsConstructor
+
 public class Tafels {
-    private static int tafelId;
-    private int aantalPersonen;
+    private static long tafelId;
+    private static int aantalPersonen;
     private static String category;
 
     @Id
     @Column(name = "tafel_id")
-   // @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
+    private Long id;
+
+
     public static int getTafelId() {
-        return tafelId;
+        return (int) tafelId;
     }
 
     public void setTafelId(int tafelId) {
@@ -62,7 +64,7 @@ public class Tafels {
 
     @Override
     public int hashCode() {
-        int result = tafelId;
+        int result = (int) tafelId;
         result = 31 * result + aantalPersonen;
         result = 31 * result + (category != null ? category.hashCode() : 0);
         return result;

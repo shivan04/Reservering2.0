@@ -9,7 +9,7 @@ public class Database {
     public Database(){
         users = new HashMap<>();
         users.put("admin_username", "admin_password");
-        users.put ("user_username", "user_password");
+        users.put ("shivan01", "shivan02");
 
     }
 
@@ -17,7 +17,7 @@ public class Database {
         return users.containsKey(username);
     }
     public  Boolean isValidPassword(String password){
-        return users.get(password).equals(password);
+        return users.get(users).equals(password);
     }
 
 }

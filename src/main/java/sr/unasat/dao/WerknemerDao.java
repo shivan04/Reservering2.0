@@ -22,7 +22,7 @@ public class WerknemerDao {
         entityManager.getTransaction().commit();
         return werknemer ;
     }
-    public Werknemer findBywerkenmerId(int werkenmerId) {
+    public static Werknemer findBywerkenmerId(int werkenmerId) {
         entityManager.getTransaction().begin();
         String jpql = "select t from Werknemer t  where t.werkenmerId = :werkenmerId";
         TypedQuery<Werknemer> query = entityManager.createQuery(jpql, Werknemer.class);

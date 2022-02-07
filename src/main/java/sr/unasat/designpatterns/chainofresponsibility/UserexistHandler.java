@@ -13,6 +13,7 @@ public class UserexistHandler  extends Handler {
             System.out.println("sign up now");
             return false;
         }
+        System.out.println("username found");
         return handleNext(username, password);
     }
 }

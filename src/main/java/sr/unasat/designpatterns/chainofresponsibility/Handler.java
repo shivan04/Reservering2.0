@@ -1,5 +1,7 @@
 package sr.unasat.designpatterns.chainofresponsibility;
 
+
+
 public abstract class Handler {
     private Handler next;
     public Handler setNextHandler(Handler next){

@@ -7,9 +7,11 @@ public class app {
         Database database = new Database();
        Handler handler = new UserexistHandler(database)
                 .setNextHandler(new ValidPasswordHandler(database))
-                .setNextHandler((new RoleCheckHandler()));
+                .setNextHandler(new RoleCheckHandler());
+
+
        AuthService service = new AuthService(handler);
-       service.LogIn("admin_username", "user");
+       service.LogIn("shivan01", "shivan02");
 
     }
 }

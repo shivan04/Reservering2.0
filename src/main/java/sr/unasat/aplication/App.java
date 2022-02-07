@@ -8,6 +8,8 @@ import sr.unasat.entities.Reservation;
 import sr.unasat.entities.Tafels;
 import sr.unasat.entities.Werknemer;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public class App {
@@ -23,12 +25,15 @@ public class App {
 
         //klanten
 
-        // insert
+        // insert/
+ /*
    Klanten klanten = Klanten.builder().achternaam("Dessa").voornaam("peter").idNummer("mGH112").
                 adress("rikhaiweg").district("wanica").telefoonNummer(77455896).build();
         Klanten savedCompany = KlantDao.insert(klanten);
         System.out.println(savedCompany);
-  /*
+
+
+
 // delete
  int foundDeletedReservation= klantDao.delete(5);
 
@@ -41,8 +46,8 @@ public class App {
 
             List<Klanten>  klantenList = KlantDao.retrieveKlantenList();
         klantenList.stream().forEach(System.out::println);
-        for (Klanten klanten : klantenList) {
-            System.out.println(klantenList);
+        //for (Klanten klanten : klantenList) {
+           // System.out.println(klantenList);
         }
 
 
@@ -54,7 +59,6 @@ public class App {
         System.out.println(updatedRecords);
         System.out.println(foundKlanten);
 
-         */
 // werknemer
         /*
         Werknemer werknemer = Werknemer.builder().achternaam("Dessa").voornaam("peter").idNummer("mGH112").
@@ -71,18 +75,19 @@ public class App {
         // list
         List<Werknemer>  WerknemerList = WerknemerDao.retrieveWerknemerList();
         WerknemerList.stream().forEach(System.out::println);
-        for (Werknemer werknemer : WerknemerList) {
-            System.out.println(WerknemerList);
+      //  for (Werknemer werknemer : WerknemerList) {
+        //    System.out.println(WerknemerList);
         }
 //update
-        Werknemer foundWerknemer = werknemerDao.findBywerkenmerId(3);  //select where
+        Werknemer foundWerknemer = WerknemerDao.findBywerkenmerId(5);  //select where
         foundWerknemer.setAdress("Hulkstraat 51");
         int updatedRecords = werknemerDao.updateWerknemer(foundWerknemer);
         System.out.println(updatedRecords);
         System.out.println(foundWerknemer);
+*/
 
 
-         */
+
 
     }
 }
