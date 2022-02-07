@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+
 @Builder
 @Entity
 @NoArgsConstructor
@@ -19,6 +17,7 @@ public class Tafels {
 
     @Id
     @Column(name = "tafel_id")
+   // @GeneratedValue(strategy = GenerationType.IDENTITY)
     public static int getTafelId() {
         return tafelId;
     }
