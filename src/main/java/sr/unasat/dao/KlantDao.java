@@ -25,11 +25,11 @@ public class KlantDao {
         return klanten;
     }
 
-    public static Klanten findByklantId (int klantId) {
+    public static Klanten findByklantNummer (int klantNummer) {
         entityManager.getTransaction().begin();
-        String jpql = "select t from Klanten t  where t.klantId = :klantId";
+        String jpql = "select t from Klanten t  where t.klantenNummer = :klantenNummer";
         TypedQuery<Klanten> query = entityManager.createQuery(jpql, Klanten.class);
-        Klanten klanten = query.setParameter("klantId", klantId).getSingleResult();
+        Klanten klanten = query.setParameter("klantenNummer", klantNummer).getSingleResult();
         entityManager.getTransaction().commit();
         return klanten;
     }

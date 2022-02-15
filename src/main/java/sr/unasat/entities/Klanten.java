@@ -21,6 +21,7 @@ public class Klanten {
     private String adress;
     private String district;
     private Integer telefoonNummer;
+    private int klantenNummer;
 
 
     @Id
@@ -53,15 +54,7 @@ public class Klanten {
         this.voornaam = voornaam;
     }
 
-    @Basic
-    @Column(name = "id_nummer")
-    public String getIdNummer() {
-        return idNummer;
-    }
 
-    public void setIdNummer(String idNummer) {
-        this.idNummer = idNummer;
-    }
 
     @Basic
     @Column(name = "adress")
@@ -93,6 +86,14 @@ public class Klanten {
         this.telefoonNummer = telefoonNummer;
     }
 
+    @Basic
+    @Column(name = "klanten_nummer")
+    public  int getKlantenNummer(){return klantenNummer;}
+
+    public  void  setKlantenNummer(int klantenNummer){
+        this.klantenNummer = telefoonNummer;
+    }
+
 
     @Override
     public String toString() {
@@ -100,9 +101,10 @@ public class Klanten {
                 "id=" + klantId+
                 ", achternaam='" + achternaam + '\'' +
                 ", voornaam ='" + voornaam + '\'' +
-                ", Idnummer='" + idNummer + '\'' +
+
                 ", adress=" + adress +
                 ", telefoonnummer =" + telefoonNummer+
+                ", klantennummer =" + klantenNummer+
                 '}';
     }
     @Override

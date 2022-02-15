@@ -21,6 +21,7 @@ public class Werknemer {
     private Integer telefoonNummer;
     private String idNummer;
     private Location locationByLocationId;
+    private int werknemerNummer;
 
     @Id
     @Column(name = "werkenmer_id")
@@ -91,6 +92,11 @@ public class Werknemer {
     public void setIdNummer(String idNummer) {
         this.idNummer = idNummer;
     }
+
+    @Basic
+    @Column (name = "werknemer_nummer")
+    public Integer getWerknemerNummer (){return werknemerNummer;}
+    public void setWerknemerNummer(Integer werknemerNummer){this.werknemerNummer= werknemerNummer;}
 
     @Override
     public String toString() {

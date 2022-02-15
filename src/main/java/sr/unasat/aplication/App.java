@@ -26,32 +26,40 @@ public class App {
         //klanten
 
         // insert/
- /*
-   Klanten klanten = Klanten.builder().achternaam("Dessa").voornaam("peter").idNummer("mGH112").
+/*
+   Klanten klanten = Klanten.builder().achternaam("bamma").voornaam("peter").idNummer("mGH112").
                 adress("rikhaiweg").district("wanica").telefoonNummer(77455896).build();
         Klanten savedCompany = KlantDao.insert(klanten);
         System.out.println(savedCompany);
 
 
+ */
+
 
 // delete
- int foundDeletedReservation= klantDao.delete(5);
+/*
+ int foundDeletedReservation= klantDao.delete(10);
 
         System.out.println(foundDeletedReservation);
 
         JPAconfig.shutdown();
 
 
+
+
+ */
+
  // list
 
-            List<Klanten>  klantenList = KlantDao.retrieveKlantenList();
-        klantenList.stream().forEach(System.out::println);
+        //    List<Klanten>  klantenList = KlantDao.retrieveKlantenList();
+      //  klantenList.stream().forEach(System.out::println);
         //for (Klanten klanten : klantenList) {
            // System.out.println(klantenList);
         }
 
 
  //update
+    /*
 
              Klanten foundKlanten = KlantDao.findByklantId(1);  //select where
         foundKlanten.setAdress("Hulkstraat 51");
@@ -59,6 +67,8 @@ public class App {
         System.out.println(updatedRecords);
         System.out.println(foundKlanten);
 
+
+     */
 // werknemer
         /*
         Werknemer werknemer = Werknemer.builder().achternaam("Dessa").voornaam("peter").idNummer("mGH112").
@@ -90,4 +100,5 @@ public class App {
 
 
     }
-}
+
+

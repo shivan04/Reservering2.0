@@ -20,7 +20,7 @@ public class Reservation {
     private LocalTime eindTijd;
     private Klanten klantenByKlantId;
     private Location locationByLocationId;
-
+    private int reservationNumber;
     @Id
     @Column(name = "reservation_id")
     public int getReservationId() {
@@ -60,6 +60,11 @@ public class Reservation {
     public void setEindTijd(LocalTime eindTijd) {
         this.eindTijd = eindTijd;
     }
+
+    @Basic
+    @Column (name = "reservation_number")
+    public  Integer getReservationNumber(){return reservationNumber;}
+    public void setReservationNumber (Integer reservationNumber){this.reservationNumber = reservationNumber;}
 
     @Override
     public boolean equals(Object o) {
