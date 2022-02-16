@@ -63,8 +63,8 @@ public class Reservation {
 
     @Basic
     @Column (name = "reservation_number")
-    public  Integer getReservationNumber(){return reservationNumber;}
-    public void setReservationNumber (Integer reservationNumber){this.reservationNumber = reservationNumber;}
+    public  int getReservationNumber(){return reservationNumber;}
+    public void setReservationNumber (int reservationNumber){this.reservationNumber = reservationNumber;}
 
     @Override
     public boolean equals(Object o) {

@@ -23,6 +23,13 @@ public class App {
         LocationDao locationDao = new LocationDao(JPAconfig.getEntityManager());
 
 
+        Werknemer foundWerknemer = WerknemerDao.findByWerknemerNummer(5);  //select where
+        foundWerknemer.setAdress("Hulkstraat 50");
+        int updatedRecords = werknemerDao.updateWerknemer(foundWerknemer);
+        System.out.println(updatedRecords);
+        System.out.println(foundWerknemer);
+
+
         //klanten
 
         // insert/
@@ -49,26 +56,27 @@ public class App {
 
  */
 
- // list
+        // list
 
         //    List<Klanten>  klantenList = KlantDao.retrieveKlantenList();
-      //  klantenList.stream().forEach(System.out::println);
+        //  klantenList.stream().forEach(System.out::println);
         //for (Klanten klanten : klantenList) {
-           // System.out.println(klantenList);
-        }
+        // System.out.println(klantenList);
 
 
- //update
-    /*
+        //update
 
-             Klanten foundKlanten = KlantDao.findByklantId(1);  //select where
+/*
+             Klanten foundKlanten = KlantDao.findByklantNummer(2);  //select where
         foundKlanten.setAdress("Hulkstraat 51");
         int updatedRecords = KlantDao.updateKlanten(foundKlanten);
         System.out.println(updatedRecords);
         System.out.println(foundKlanten);
 
 
-     */
+ */
+
+
 // werknemer
         /*
         Werknemer werknemer = Werknemer.builder().achternaam("Dessa").voornaam("peter").idNummer("mGH112").
@@ -89,16 +97,11 @@ public class App {
         //    System.out.println(WerknemerList);
         }
 //update
-        Werknemer foundWerknemer = WerknemerDao.findBywerkenmerId(5);  //select where
-        foundWerknemer.setAdress("Hulkstraat 51");
-        int updatedRecords = werknemerDao.updateWerknemer(foundWerknemer);
-        System.out.println(updatedRecords);
-        System.out.println(foundWerknemer);
-*/
 
-
+         */
 
 
     }
+}
 
 

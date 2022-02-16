@@ -22,11 +22,11 @@ public class WerknemerDao {
         entityManager.getTransaction().commit();
         return werknemer ;
     }
-    public static Werknemer findBywerkenmerId(int werkenmerId) {
+    public static Werknemer findByWerknemerNummer(int WerknemerNummer) {
         entityManager.getTransaction().begin();
-        String jpql = "select t from Werknemer t  where t.werkenmerId = :werkenmerId";
+        String jpql = "select t from Werknemer t  where t.werknemerNummer = :werknemerNummer";
         TypedQuery<Werknemer> query = entityManager.createQuery(jpql, Werknemer.class);
-        Werknemer werknemer = query.setParameter("werkenmerId", werkenmerId).getSingleResult();
+        Werknemer werknemer = query.setParameter("werknemerNummer", WerknemerNummer).getSingleResult();
         entityManager.getTransaction().commit();
         return werknemer;
     }

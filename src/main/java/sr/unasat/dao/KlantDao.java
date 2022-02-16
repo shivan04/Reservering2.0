@@ -54,8 +54,8 @@ public class KlantDao {
     }
     public static int updateKlanten(Klanten klanten) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("UPDATE Klanten  SET adress = :adress where klantId= :klant_id");
-        query.setParameter("klant_id", klanten.getKlantId());
+        Query query = entityManager.createQuery("UPDATE Klanten  SET adress = :adress where klantenNummer= :klantenNummer");
+        query.setParameter("klantenNummer", klanten.getKlantenNummer());
         query.setParameter("adress", klanten.getAdress());
         int rowsUpdated = query.executeUpdate();
         System.out.println("entities Updated: " + rowsUpdated);

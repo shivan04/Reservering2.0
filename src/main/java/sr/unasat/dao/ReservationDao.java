@@ -22,11 +22,11 @@ public class ReservationDao {
         entityManager.getTransaction().commit();
         return reservation;
     }
-    public static Reservation findByReservationId (int reservationId) {
+    public static Reservation findByReservationNumber(int ReservationNumber) {
         entityManager.getTransaction().begin();
-        String jpql = "select t from Reservation t  where t.reservationId = :reservationId";
+        String jpql = "select t from Reservation t  where t.reservationNumber = :reservationNumber";
         TypedQuery<Reservation> query = entityManager.createQuery(jpql, Reservation.class);
-        Reservation reservation = query.setParameter("reservationId", reservationId).getSingleResult();
+        Reservation reservation = query.setParameter("reservationNumber", ReservationNumber).getSingleResult();
         entityManager.getTransaction().commit();
         return reservation;
     }

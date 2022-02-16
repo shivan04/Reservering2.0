@@ -95,8 +95,8 @@ public class Werknemer {
 
     @Basic
     @Column (name = "werknemer_nummer")
-    public Integer getWerknemerNummer (){return werknemerNummer;}
-    public void setWerknemerNummer(Integer werknemerNummer){this.werknemerNummer= werknemerNummer;}
+    public int getWerknemerNummer (){return werknemerNummer;}
+    public void setWerknemerNummer(int werknemerNummer){this.werknemerNummer= werknemerNummer;}
 
     @Override
     public String toString() {
