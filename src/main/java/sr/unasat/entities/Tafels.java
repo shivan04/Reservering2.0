@@ -70,6 +70,7 @@ public class Tafels {
         return result;
     }
 
+
     @Override
     public String toString() {
         return "Tafel{" +

@@ -22,6 +22,7 @@ public class Klanten {
     private String district;
     private Integer telefoonNummer;
     private int klantenNummer;
+    private Location locationByLocationId;
 
 
     @Id

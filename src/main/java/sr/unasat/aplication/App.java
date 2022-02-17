@@ -22,13 +22,15 @@ public class App {
         WerknemerDao werknemerDao = new WerknemerDao(JPAconfig.getEntityManager());
         LocationDao locationDao = new LocationDao(JPAconfig.getEntityManager());
 
-
+/*
         Werknemer foundWerknemer = WerknemerDao.findByWerknemerNummer(5);  //select where
         foundWerknemer.setAdress("Hulkstraat 50");
         int updatedRecords = werknemerDao.updateWerknemer(foundWerknemer);
         System.out.println(updatedRecords);
         System.out.println(foundWerknemer);
 
+
+ */
 
         //klanten
 
