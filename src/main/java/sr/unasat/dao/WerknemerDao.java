@@ -38,11 +38,11 @@ public class WerknemerDao {
         entityManager.getTransaction().commit();
         return werknemerList;
     }
-    public static int  delete(int werkenmer_id) {
+    public static int  delete(int WerknemerNummer) {
         entityManager.getTransaction().begin();
         Query query;
-        query = entityManager.createQuery("delete from Werknemer where werkenmerId = :werkenmerId ");
-        query.setParameter("werkenmerId", werkenmer_id);
+        query = entityManager.createQuery("delete from Werknemer where werknemerNummer = :WerknemerNummer ");
+        query.setParameter("WerknemerNummer", WerknemerNummer);
         int rowsDeleted = query.executeUpdate();
         System.out.println("entities deleted: " + rowsDeleted);
         entityManager.getTransaction().commit();
@@ -50,8 +50,8 @@ public class WerknemerDao {
     }
     public int updateWerknemer(Werknemer werknemer) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("UPDATE Werknemer c SET c.adress = :adress where c.werkenmerId = :werkenmer_id");
-        query.setParameter("werkenmer_id", werknemer.getWerkenmerId());
+        Query query = entityManager.createQuery("UPDATE Werknemer c SET c.adress = :adress where c.werknemerNummer = :WerknemerNummer");
+        query.setParameter("WerknemerNummer", werknemer.getWerknemerNummer());
        query.setParameter("adress", werknemer.getAdress());
         int rowsUpdated = query.executeUpdate();
         System.out.println("entities Updated: " + rowsUpdated);

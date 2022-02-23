@@ -34,11 +34,11 @@ public class KlantDao {
         return klanten;
     }
 
-    public int  delete ( int klantId) {
+    public int  delete ( int klantNummer) {
         entityManager.getTransaction().begin();
         Query query;
-        query = entityManager.createQuery("delete from Klanten where klantId = :klantId ");
-        query.setParameter("klantId", klantId);
+        query = entityManager.createQuery("delete from Klanten where klantenNummer = :klantNummer ");
+        query.setParameter("klantNummer", klantNummer);
         int rowsDeleted = query.executeUpdate();
         System.out.println("entities deleted: " + rowsDeleted);
         entityManager.getTransaction().commit();

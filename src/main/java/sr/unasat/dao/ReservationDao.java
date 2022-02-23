@@ -32,11 +32,11 @@ public class ReservationDao {
     }
 
     //delete
-    public static int  delete(int reservation_id) {
+    public static int  delete(int ReservationNumber) {
         entityManager.getTransaction().begin();
         Query query;
-        query = entityManager.createQuery("delete from Reservation  where reservationId = :reservationId ");
-        query.setParameter("reservationId", reservation_id);
+        query = entityManager.createQuery("delete from Reservation  where reservationNumber = :ReservationNumber ");
+        query.setParameter("ReservationNumber", ReservationNumber);
         int rowsDeleted = query.executeUpdate();
         System.out.println("entities deleted: " + rowsDeleted);
         entityManager.getTransaction().commit();
@@ -54,8 +54,8 @@ public class ReservationDao {
 
     public int updateReservation(Reservation reservation) {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("UPDATE Reservation r SET r.beginTijd = :beginTijd where r.reservationId = :reservation_id");
-        query.setParameter("reservation_id", reservation.getReservationId());
+        Query query = entityManager.createQuery("UPDATE Reservation r SET r.beginTijd = :beginTijd where r.reservationNumber = :reservationNumber");
+        query.setParameter("reservationNumber", reservation.getReservationNumber());
       query.setParameter("beginTijd", reservation.getBeginTijd());
         int rowsUpdated = query.executeUpdate();
         System.out.println("entities Updated: " + rowsUpdated);
