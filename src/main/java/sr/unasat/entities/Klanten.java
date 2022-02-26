@@ -4,10 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Builder
@@ -22,7 +20,10 @@ public class Klanten {
     private String district;
     private Integer telefoonNummer;
     private int klantenNummer;
-    private Location locationByLocationId;
+
+    @ManyToOne(cascade = CascadeType.REMOVE)
+    @JoinColumn(name = "klanten_nummer")
+    private Klanten klanten_nummer;
 
 
     @Id
@@ -94,6 +95,10 @@ public class Klanten {
     public  void  setKlantenNummer(int klantenNummer){
         this.klantenNummer = telefoonNummer;
     }
+
+   @OneToMany( mappedBy = "klanten_nummer", cascade = CascadeType.REMOVE,orphanRemoval = true)
+    private List<Klanten>klant;
+
 
 
     @Override

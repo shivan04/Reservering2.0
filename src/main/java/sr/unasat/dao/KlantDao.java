@@ -26,7 +26,9 @@ public class KlantDao {
     }
 
     public static Klanten findByklantNummer (int klantNummer) {
-        entityManager.getTransaction().begin();
+
+            entityManager.getTransaction().begin();
+
         String jpql = "select t from Klanten t  where t.klantenNummer = :klantenNummer";
         TypedQuery<Klanten> query = entityManager.createQuery(jpql, Klanten.class);
         Klanten klanten = query.setParameter("klantenNummer", klantNummer).getSingleResult();
@@ -36,6 +38,7 @@ public class KlantDao {
 
     public int  delete ( int klantNummer) {
         entityManager.getTransaction().begin();
+
         Query query;
         query = entityManager.createQuery("delete from Klanten where klantenNummer = :klantNummer ");
         query.setParameter("klantNummer", klantNummer);

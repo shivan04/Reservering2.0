@@ -3,12 +3,15 @@ package sr.unasat.entities;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import org.hibernate.engine.internal.Cascade;
 
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
+
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -18,8 +21,9 @@ public class Reservation {
     private LocalDate reservationDate;
     private LocalTime beginTijd;
     private LocalTime eindTijd;
-    private Klanten klantenByKlantId;
+    private Klanten klantenByKlantenNummer;
     private Location locationByLocationId;
+    private Werknemer werknemerNummer;
     private int reservationNumber;
     @Id
     @Column(name = "reservation_id")
@@ -82,30 +86,28 @@ public class Reservation {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = reservationId;
-        result = 31 * result + (reservationDate != null ? reservationDate.hashCode() : 0);
-        result = 31 * result + (beginTijd != null ? beginTijd.hashCode() : 0);
-        result = 31 * result + (eindTijd != null ? eindTijd.hashCode() : 0);
-        return result;
-    }
+
 
     @ManyToOne
-    @JoinColumn(name = "klant_id", referencedColumnName = "Klant_id")
-    public Klanten getKlantenByKlantId() {
-        return klantenByKlantId;
+    @JoinColumn(name = "klanten_nummer",referencedColumnName = "klanten_nummer")
+    public Klanten getKlantenByKlantenNummer(){
+        return klantenByKlantenNummer;
+    }
+    public void setKlantenByKlantenNummer(Klanten klantenByKlantenNummer){
+        this.klantenByKlantenNummer=klantenByKlantenNummer;
     }
 
-    public void setKlantenByKlantId(Klanten klantenByKlantId) {
-        this.klantenByKlantId = klantenByKlantId;
-    }
+
+
+
+
 
     @ManyToOne
     @JoinColumn(name = "location_id", referencedColumnName = "Location_id")
     public Location getLocationByLocationId() {
         return locationByLocationId;
     }
+
 
     public void setLocationByLocationId(Location locationByLocationId) {
         this.locationByLocationId = locationByLocationId;
@@ -117,7 +119,7 @@ public class Reservation {
                 ", reservationdate='" + reservationDate + '\'' +
                 ", begintijd ='" + beginTijd + '\'' +
                 ", eindtijd='" + eindTijd + '\'' +
-                ", klantId=" + klantenByKlantId +
+                ", klantenNummer=" + klantenByKlantenNummer +
                 ", locationId =" + locationByLocationId+
                 '}';
     }

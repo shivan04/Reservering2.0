@@ -22,6 +22,16 @@ public class App {
         WerknemerDao werknemerDao = new WerknemerDao(JPAconfig.getEntityManager());
         LocationDao locationDao = new LocationDao(JPAconfig.getEntityManager());
 
+
+        int foundDeletedReservation= klantDao.delete(3);
+
+        System.out.println(foundDeletedReservation);
+
+        JPAconfig.shutdown();
+
+
+
+
 /*
         Werknemer foundWerknemer = WerknemerDao.findByWerknemerNummer(5);  //select where
         foundWerknemer.setAdress("Hulkstraat 50");
@@ -37,12 +47,14 @@ public class App {
         // insert/
 /*
    Klanten klanten = Klanten.builder().achternaam("bamma").voornaam("peter").idNummer("mGH112").
-                adress("rikhaiweg").district("wanica").telefoonNummer(77455896).build();
+                adress("rikhaiweg").district("wanica").telefoonNummer(77455896).klantenNummer(20).build();
         Klanten savedCompany = KlantDao.insert(klanten);
         System.out.println(savedCompany);
 
 
+
  */
+
 
 
 // delete
