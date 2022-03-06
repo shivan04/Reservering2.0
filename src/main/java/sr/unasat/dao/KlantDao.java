@@ -1,15 +1,16 @@
 package sr.unasat.dao;
 
 import sr.unasat.entities.Klanten;
-import sr.unasat.entities.Location;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
 public class KlantDao {
 
+    EntityTransaction transaction = null;
     private static EntityManager entityManager;
 
 
@@ -47,14 +48,39 @@ public class KlantDao {
         entityManager.getTransaction().commit();
         return rowsDeleted;
     }
+
+
+
     public static List<Klanten> retrieveKlantenList() {
         entityManager.getTransaction().begin();
         String jpql = "select k from Klanten k ";
         TypedQuery<Klanten> query = entityManager.createQuery(jpql, Klanten.class);
         List<Klanten> klantenList = query.getResultList();
-        entityManager.getTransaction().commit();
+
+
+
+            System.out.println("-----------------------------------------------------------------------------");
+            System.out.printf("%10s %10s %20s %20s", "KLANTEN NUMMER", "NAAM", "VOORNAAM", "TELEFOON NUMMER");
+            System.out.println();
+            System.out.println("-----------------------------------------------------------------------------");
+            for (Klanten klanten : klantenList) {
+                System.out.format("%5s %20s %20s %20s",
+                        klanten.getKlantenNummer(), klanten.getAchternaam(), klanten.getVoornaam(), klanten.getTelefoonNummer());
+                System.out.println();
+            }
+
+
+                //  entityManager.getTransaction().commit();
+
+            System.out.println("-----------------------------------------------------------------------------");
+
+
+
+
         return klantenList;
     }
+
+
     public static int updateKlanten(Klanten klanten) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("UPDATE Klanten  SET adress = :adress where klantenNummer= :klantenNummer");
@@ -69,3 +95,4 @@ public class KlantDao {
 
 
 }
+

@@ -93,11 +93,11 @@ public class Klanten {
     public  int getKlantenNummer(){return klantenNummer;}
 
     public  void  setKlantenNummer(int klantenNummer){
-        this.klantenNummer = telefoonNummer;
+        this.klantenNummer = klantenNummer;
     }
 
-   @OneToMany( mappedBy = "klanten_nummer", cascade = CascadeType.REMOVE,orphanRemoval = true)
-    private List<Klanten>klant;
+  //@OneToMany( mappedBy = "klanten_nummer", cascade = CascadeType.REMOVE,orphanRemoval = true)
+  //  private List<Klanten>klant;
 
 
 
@@ -113,34 +113,7 @@ public class Klanten {
                 ", klantennummer =" + klantenNummer+
                 '}';
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        Klanten klanten = (Klanten) o;
 
-        if (klantId != klanten.klantId) return false;
-        if (achternaam != null ? !achternaam.equals(klanten.achternaam) : klanten.achternaam != null) return false;
-        if (voornaam != null ? !voornaam.equals(klanten.voornaam) : klanten.voornaam != null) return false;
-        if (idNummer != null ? !idNummer.equals(klanten.idNummer) : klanten.idNummer != null) return false;
-        if (adress != null ? !adress.equals(klanten.adress) : klanten.adress != null) return false;
-        if (district != null ? !district.equals(klanten.district) : klanten.district != null) return false;
-        if (telefoonNummer != null ? !telefoonNummer.equals(klanten.telefoonNummer) : klanten.telefoonNummer != null)
-            return false;
 
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = klantId;
-        result = 31 * result + (achternaam != null ? achternaam.hashCode() : 0);
-        result = 31 * result + (voornaam != null ? voornaam.hashCode() : 0);
-        result = 31 * result + (idNummer != null ? idNummer.hashCode() : 0);
-        result = 31 * result + (adress != null ? adress.hashCode() : 0);
-        result = 31 * result + (district != null ? district.hashCode() : 0);
-        result = 31 * result + (telefoonNummer != null ? telefoonNummer.hashCode() : 0);
-        return result;
-    }
 }
