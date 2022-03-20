@@ -46,11 +46,11 @@ public class TafelsDao {
 
     public static List<Tafels> retrieveTafelList() {
         entityManager.getTransaction().begin();
-        String jpql = "select c from Tafels c";
+        String jpql = "select  c from Tafels c";
         TypedQuery<Tafels> query = entityManager.createQuery(jpql, Tafels.class);
-        List<Tafels> companyList = query.getResultList();
+        List<Tafels> tafelsList = query.getResultList();
         entityManager.getTransaction().commit();
-        return companyList;
+        return retrieveTafelList();
     }
     public static int updateTafel(Tafels tafels) {
         entityManager.getTransaction().begin();

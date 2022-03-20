@@ -1,5 +1,6 @@
 package sr.unasat.dao;
 
+import sr.unasat.entities.Klanten;
 import sr.unasat.entities.Werknemer;
 
 import javax.persistence.EntityManager;
@@ -7,7 +8,7 @@ import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.List;
 
-public class WerknemerDao {
+public class    WerknemerDao {
 
     private static EntityManager entityManager;
 
@@ -35,7 +36,27 @@ public class WerknemerDao {
         String jpql = "select l from Werknemer l ";
         TypedQuery<Werknemer> query = entityManager.createQuery(jpql, Werknemer.class);
         List<Werknemer> werknemerList = query.getResultList();
-        entityManager.getTransaction().commit();
+
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.printf("%10s %10s %20s %20s %20S", "WERKNEMER NUMMER", "NAAM", "VOORNAAM", "ADRESS", "TELEFOON NUMMER");
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------");
+        for (Werknemer werknemer : werknemerList) {
+            System.out.format("%5s %20s %20s %20s %20S",
+                    werknemer.getWerknemerNummer(),werknemer.getAchternaam(),werknemer.getVoornaam(),werknemer.getAdress()
+            ,werknemer.getTelefoonNummer());
+
+
+            System.out.println();
+        }
+
+
+      entityManager.getTransaction().commit();
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+
+
         return werknemerList;
     }
     public static int  delete(int WerknemerNummer) {

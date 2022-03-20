@@ -1,14 +1,19 @@
 package sr.unasat.dao;
 
+import sr.unasat.entities.Klanten;
 import sr.unasat.entities.Reservation;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TemporalType;
 import javax.persistence.TypedQuery;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public class ReservationDao {
     private static EntityManager entityManager;
+
 
 
     public ReservationDao(EntityManager entityManager) {
@@ -43,14 +48,37 @@ public class ReservationDao {
         return rowsDeleted;
 
     }
-    public static List<Reservation> retrieveReservationList() {
+
+    public static List<Reservation> getResList(java.util.Date startDate, java.util.Date endDate) {
         entityManager.getTransaction().begin();
-        String jpql = "select r from Reservation  r ";
+        String jpql = "select c from Reservation c where c.reservationDate between :startDate and :endDate ";
         TypedQuery<Reservation> query = entityManager.createQuery(jpql, Reservation.class);
-        List<Reservation> ReservationList = query.getResultList();
+        query.setParameter("startDate",startDate);
+        query.setParameter("endDate",endDate);
+        List<Reservation> reslist = query.getResultList();
+
+        System.out.println("-----------------------------------------------------------------------------");
+        System.out.printf("%10s %10s %20s %20s", "RESERVATIONnUMBER", "RESERVATION DATE", "START TIME", "END TIME");
+        System.out.println();
+        System.out.println("-----------------------------------------------------------------------------");
+        for (Reservation reservation : reslist) {
+            System.out.format("%5s %20s %20s %20s",
+             reservation.getReservationNumber(),reservation.getReservationDate(),reservation.getBeginTijd(),reservation.getEindTijd());
+            System.out.println();
+        }
+
+
         entityManager.getTransaction().commit();
-        return ReservationList;
+
+        System.out.println("-----------------------------------------------------------------------------");
+
+
+
+
+        return reslist;
     }
+
+
 
     public int updateReservation(Reservation reservation) {
         entityManager.getTransaction().begin();
@@ -62,6 +90,9 @@ public class ReservationDao {
         entityManager.getTransaction().commit();
         return rowsUpdated;
     }
+
+
+
 
 
 

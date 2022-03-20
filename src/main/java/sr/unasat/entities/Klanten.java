@@ -3,6 +3,10 @@ package sr.unasat.entities;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.NoArgsConstructor;
+import javax.persistence.Basic;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import javax.persistence.*;
 import java.util.List;
@@ -96,8 +100,8 @@ public class Klanten {
         this.klantenNummer = klantenNummer;
     }
 
-  //@OneToMany( mappedBy = "klanten_nummer", cascade = CascadeType.REMOVE,orphanRemoval = true)
-  //  private List<Klanten>klant;
+  @OneToMany( mappedBy = "klanten_nummer", cascade = CascadeType.REMOVE,orphanRemoval = true)
+   private List<Klanten>klant;
 
 
 
@@ -107,10 +111,9 @@ public class Klanten {
                 "id=" + klantId+
                 ", achternaam='" + achternaam + '\'' +
                 ", voornaam ='" + voornaam + '\'' +
-
                 ", adress=" + adress +
                 ", telefoonnummer =" + telefoonNummer+
-                ", klantennummer =" + klantenNummer+
+             //   ", klantennummer =" + klantenNummer+
                 '}';
     }
 

@@ -70,7 +70,7 @@ public class KlantDao {
             }
 
 
-                //  entityManager.getTransaction().commit();
+                 entityManager.getTransaction().commit();
 
             System.out.println("-----------------------------------------------------------------------------");
 

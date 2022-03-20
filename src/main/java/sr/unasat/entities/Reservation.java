@@ -18,12 +18,12 @@ import java.util.List;
 @Entity
 public class Reservation {
     private int reservationId;
-    private LocalDate reservationDate;
+    private Date reservationDate;
     private LocalTime beginTijd;
     private LocalTime eindTijd;
-    private Klanten klantenByKlantenNummer;
+   // private Klanten klantenByKlantenNummer;
     private Location locationByLocationId;
-    private Werknemer werknemerNummer;
+   // private Werknemer werknemerNummer;
     private int reservationNumber;
     @Id
     @Column(name = "reservation_id")
@@ -37,11 +37,11 @@ public class Reservation {
 
     @Basic
     @Column(name = "reservation_date")
-    public LocalDate getReservationDate() {
+    public Date getReservationDate() {
         return reservationDate;
     }
 
-    public void setReservationDate(LocalDate reservationDate) {
+    public void setReservationDate(Date reservationDate) {
         this.reservationDate = reservationDate;
     }
 
@@ -87,7 +87,7 @@ public class Reservation {
     }
 
 
-
+/*
     @ManyToOne
     @JoinColumn(name = "klanten_nummer",referencedColumnName = "klanten_nummer")
     public Klanten getKlantenByKlantenNummer(){
@@ -96,6 +96,8 @@ public class Reservation {
     public void setKlantenByKlantenNummer(Klanten klantenByKlantenNummer){
         this.klantenByKlantenNummer=klantenByKlantenNummer;
     }
+
+ */
 
 
 
@@ -107,11 +109,10 @@ public class Reservation {
     public Location getLocationByLocationId() {
         return locationByLocationId;
     }
-
-
     public void setLocationByLocationId(Location locationByLocationId) {
         this.locationByLocationId = locationByLocationId;
     }
+
     @Override
     public String toString() {
         return "Reservation{" +
@@ -119,7 +120,7 @@ public class Reservation {
                 ", reservationdate='" + reservationDate + '\'' +
                 ", begintijd ='" + beginTijd + '\'' +
                 ", eindtijd='" + eindTijd + '\'' +
-                ", klantenNummer=" + klantenByKlantenNummer +
+             //   ", klantenNummer=" + klantenByKlantenNummer +
                 ", locationId =" + locationByLocationId+
                 '}';
     }
