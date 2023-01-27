@@ -4,7 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class JPAconfig {
+public class JPAconfiguration {
     private  final String PERSISTENCE_UNIT_NAME = "PERSISTENCE";
     private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("default");
     private static final EntityManager entityManager = factory.createEntityManager();
@@ -16,8 +16,6 @@ public class JPAconfig {
     public static EntityManager getEntityManager() {
         return entityManager;
     }
-
-
 
     public static void shutdown() {
         if (entityManager != null) {
