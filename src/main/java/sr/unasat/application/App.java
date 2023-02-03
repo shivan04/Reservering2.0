@@ -4,6 +4,7 @@ import sr.unasat.config.JPAconfiguration;
 import sr.unasat.dao.*;
 import sr.unasat.entities.Klanten;
 import sr.unasat.entities.Reservation;
+import sr.unasat.entities.Tafels;
 import sr.unasat.entities.Werknemer;
 
 import java.sql.Date;
@@ -26,14 +27,16 @@ public abstract class App {
         LocationDao locationDao;
         locationDao = new LocationDao(JPAconfiguration.getEntityManager());
 
-        System.out.println("Alle werknemers");
-        List<Werknemer> werknemerList = WerknemerDao.retrieveWerknemerList(); // WORKS RR
-        System.out.println("Alle klanten ");
-        List<Klanten> klantenList = KlantDao.retrieveKlantenList(); // WORKS RR
-        System.out.println("Reservation list");
-        List<Reservation> reservationList = ReservationDao.getResList(Date.valueOf("2022-01-01"), Date.valueOf("2022-03-31"));
+//        System.out.println("Alle werknemers");
+//        List<Werknemer> werknemerList = WerknemerDao.retrieveWerknemerList(); // WORKS RR
+//        System.out.println("Alle klanten ");
+//        List<Klanten> klantenList = KlantDao.retrieveKlantenList(); // WORKS RR
+//        System.out.println("Reservation list");
+//        List<Reservation> reservationList = ReservationDao.getResList(Date.valueOf("2022-01-01"), Date.valueOf("2022-03-31"));
 
-
+            System.out.println("alle tafels");
+            List<Tafels> tafelsList = TafelsDao.retrieveTafelList();
+        System.out.println("alle tafels");
     }
     public abstract Map<String, Object> getProperties();
 }

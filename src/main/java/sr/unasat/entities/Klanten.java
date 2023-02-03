@@ -31,6 +31,7 @@ public class Klanten {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "klant_id")
     public int getKlantId() {
         return klantId;
