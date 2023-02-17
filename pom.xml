@@ -15,6 +15,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.source>1.8</maven.compiler.source>
         <junit.version>5.7.1</junit.version>
+        <jersey.version>2.20</jersey.version>
         <maven.tomcat.port>8081</maven.tomcat.port>
     </properties>
 
@@ -39,7 +40,7 @@
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.25</version>
+            <version>8.0.27</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -56,32 +57,65 @@
             <artifactId>jersey-client</artifactId>
             <version>1.8</version>
         </dependency>
+        <!--        required for JPA -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>5.2.3.Final</version>
+        </dependency>
+
+        <!--        extra-->
+        <dependency>
+            <groupId>org.glassfish.jersey.containers</groupId>
+            <artifactId>jersey-container-servlet</artifactId>
+            <version>${jersey.version}</version>
+        </dependency>
+        <!-- Runtime, com.sun.xml.bind module -->
+        <dependency>
+            <groupId>org.glassfish.jaxb</groupId>
+            <artifactId>jaxb-runtime</artifactId>
+            <version>2.3.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr353</artifactId>
+            <version>2.13.3</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+            <version>2.13.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.glassfish.jersey.inject</groupId>
+            <artifactId>jersey-cdi2-se</artifactId>
+            <version>2.34</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.weld.se</groupId>
+            <artifactId>weld-se-core</artifactId>
+            <version>3.1.8.Final</version>
+        </dependency>
+
     </dependencies>
+
 
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-                <version>2.3.2</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <version>2.0</version>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
-                <version>3.2.0</version>
-                <configuration>
-                    <failOnMissingWebXml>false</failOnMissingWebXml>
-                </configuration>
+                <version>3.3.2</version>
             </plugin>
         </plugins>
     </build>

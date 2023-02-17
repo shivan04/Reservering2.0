@@ -29,14 +29,14 @@ public abstract class App {
 
 //        System.out.println("Alle werknemers");
 //        List<Werknemer> werknemerList = WerknemerDao.retrieveWerknemerList(); // WORKS RR
-//        System.out.println("Alle klanten ");
-//        List<Klanten> klantenList = KlantDao.retrieveKlantenList(); // WORKS RR
+        System.out.println("Alle klanten ");
+        List<Klanten> klantenList = KlantDao.retrieveKlantenList(); // WORKS RR
 //        System.out.println("Reservation list");
 //        List<Reservation> reservationList = ReservationDao.getResList(Date.valueOf("2022-01-01"), Date.valueOf("2022-03-31"));
 
-            System.out.println("alle tafels");
-            List<Tafels> tafelsList = TafelsDao.retrieveTafelList();
-        System.out.println("alle tafels");
+//            System.out.println("alle tafels");
+//            List<Tafels> tafelsList = TafelsDao.retrieveTafelList();
+//        System.out.println("alle tafels");
     }
     public abstract Map<String, Object> getProperties();
 }
